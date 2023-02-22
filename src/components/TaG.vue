@@ -1,12 +1,12 @@
 <template>
     <div class="row ms-4">
-        发货
+        tag
     </div>
 </template>
 
 <script>
 export default {
-    name: 'DeliverGoods',
+    name: 'TaG',
     props: {
         msg: String
     }

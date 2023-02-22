@@ -1,15 +1,15 @@
 <template>
-    <div class="row ms-4">
-        代币
-    </div>
+  <div class="row ms-4">
+    公告
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'CoIn',
-    props: {
-        msg: String
-    }
+  name: 'ManaGe',
+  props: {
+    msg: String
+  }
 }
 </script>
 

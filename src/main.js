@@ -5,23 +5,18 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 // 在此添加路由页面
-import home from "@/components/PropaGanda.vue";
-import personal from "@/components/PerSonal.vue";
+import home from "@/components/ManaGe.vue";
+import accomplish from "@/components/AccomPlish.vue";
 import order from "@/components/OrDer.vue";
-import inregral from "@/components/InteGral.vue";
-import gift from "@/components/GiFt.vue";
-import delivergoods from "@/components/DeliverGoods.vue";
-import coin from "@/components/CoIn.vue";
+import tag from "@/components/TaG.vue";
+
 
 // 在此添加路由
 const routes = [
   { path: "/", component: home },
-  { path: "/personal", component: personal },
+  { path: "/accomplish", component: accomplish },
   { path: "/order", component: order },
-  { path: "/inregral", component: inregral },
-  { path: "/gift", component: gift },
-  { path: "/delivergoods", component: delivergoods },
-  { path: "/coin", component: coin },
+  { path: "/tag", component: tag },
 ];
 
 const router = createRouter({

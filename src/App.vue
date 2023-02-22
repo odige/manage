@@ -7,7 +7,7 @@
           aria-controls="offcanvasNavbar">
           <i class="bi bi-list"></i>
         </button>
-        <a class="navbar-brand m-3" href="#">多维变奏MDV</a>
+        <a class="navbar-brand m-3" href="#">后台管理</a>
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
           id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
@@ -48,8 +48,8 @@
 
     <div class="bottm d-flex flex-row">
       <div class="side  d-flex flex-column">
-        <div class="box d-flex flex-row position-relative" v-for="view in views" :key="view.name" @click="to_(view.id)">
-          <h4 class="text-center icon my-2"><i :class=view.i></i></h4>
+        <div class="box d-flex flex-row position-relative p-1" v-for="view in views" :key="view.name" @click="to_(view.id)">
+          <h4 class="text-center icon my-2 ms-1"><i :class=view.i></i></h4>
           <p class="text my-auto ps-3 stretched-link click">{{view.name}}</p>
         </div>
         <div class="box d-flex flex-row mt-auto ">
@@ -72,18 +72,15 @@ export default {
   name: 'App',
   data() {
     return {
-      views: [{ i: "bi bi-house-door", name: "宣传公告",id:"propaganda"},
-      { i: "bi bi-person", name: "个人中心" ,id:"personal"},
-      { i: "bi bi-cash-coin", name: "我的积分",id:"inregral" },
-      { i: "bi bi-coin", name: "我的代币",id:"coin" },
-      { i: "bi bi-gift", name: "礼物列表" ,id:"gift"},
-      { i: "bi bi-box-seam", name: "已定礼物",id:"order" },
-      { i: "bi bi-truck", name: "已发货",id:"delivergoods" }],
+      views: [{ i: "bi bi-bag-fill", name: "商品管理",id:"mange"},
+      { i: "bi bi-tag-fill", name: "TAG管理" ,id:"tag"},
+      { i: "bi bi-box2-fill", name: "订单状态",id:"order" },
+      { i: "bi bi-check-circle-fill", name: "结束订单",id:"accomplish" }],
     }
   },
   methods:{
     to_(id){
-      if(id==='propaganda'){
+      if(id==='mange'){
         _push(window,"")
       }else{
         _push(window,id)

@@ -1,15 +1,15 @@
 <template>
-  <div class="row ms-4">
-    公告
-  </div>
+    <div class="row ms-4">
+        个人中心
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'PropaGanda',
-  props: {
-    msg: String
-  }
+    name: 'AccomPlish',
+    props: {
+        msg: String
+    }
 }
 </script>
 
