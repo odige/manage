@@ -135,6 +135,6 @@ i {
 
 .view {
   padding-left:240px;
-  min-height: calc(100% - 46.5px);
+  
 }
 </style>
