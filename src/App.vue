@@ -46,7 +46,7 @@
       </div>
     </nav>
 
-    <div class="bottm d-flex flex-row">
+    <div class="bottm flex-row fixed-bottom">
       <div class="side  d-flex flex-column">
         <div class="box d-flex flex-row position-relative p-1" v-for="view in views" :key="view.name"
           @click="to_(view.id)">
@@ -58,12 +58,10 @@
           <p class="text my-auto ps-3 ">退出登录</p>
         </div>
       </div>
+    </div>
+    <div class="view">
       <router-view></router-view>
     </div>
-
-
-
-
   </div>
 </template>
 
@@ -93,7 +91,7 @@ export default {
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
 
 #app {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #eeeeee;
 }
 
@@ -133,5 +131,10 @@ i {
 
 .side>.box:hover>.icon>i:nth-child(n) {
   color: #40a9ff;
+}
+
+.view {
+  padding-left:240px;
+  min-height: calc(100% - 46.5px);
 }
 </style>
