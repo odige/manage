@@ -15,8 +15,8 @@
                 </div>
 
             </div>
-            <div class="col-11 mx-auto p-2">
-                <button type="button" class="btn btn-primary col m-2 rounded-pill" v-for="tag in tags" :key="tag.id">{{tag.name}}</button>
+            <div class="col-10 mx-auto text-center ">
+                <button type="button" class="btn btn-primary col m-2 rounded-pill " v-for="tag in tags" :key="tag.id">{{tag.name}}</button>
             </div>
         </div>
     </div>
