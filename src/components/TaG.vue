@@ -161,6 +161,7 @@ export default {
         },
         renovate() {
             this.tag_name = '';
+            this.filterList = this.tags
         },
         showtag(tag) {
             this.show_tag = tag
@@ -173,6 +174,7 @@ export default {
             });
             this.tags.splice(id1, 1);
             this.search = '';
+            this.renovate();
         }
     },
     watch: {
