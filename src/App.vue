@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-dark bg-primary bg-body-tertiary sticky-top bg-primary-border-subtle">
-      <div>
+      <div >
 
         <button class="navbar-toggler mx-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar">
@@ -101,6 +101,7 @@ i {
 
 .bottm {
   height: calc(100% - 46.5px);
+  width: 200px;
 }
 
 .click {
@@ -109,7 +110,7 @@ i {
 
 .side {
   height: 100%;
-  width: 220px;
+  width: 200px;
   background-color: #ffffff;
   left: 50px;
   transition: all 0.2s;
@@ -134,7 +135,8 @@ i {
 }
 
 .view {
-  padding-left:240px;
+  padding-left:230px;
   
 }
+
 </style>
