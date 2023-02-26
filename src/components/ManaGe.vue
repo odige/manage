@@ -1,6 +1,6 @@
 <template>
   <div class="row ms-4">
-    公告
+    商品管理
   </div>
 </template>
 

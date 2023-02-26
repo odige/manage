@@ -48,9 +48,10 @@
 
     <div class="bottm d-flex flex-row">
       <div class="side  d-flex flex-column">
-        <div class="box d-flex flex-row position-relative p-1" v-for="view in views" :key="view.name" @click="to_(view.id)">
+        <div class="box d-flex flex-row position-relative p-1" v-for="view in views" :key="view.name"
+          @click="to_(view.id)">
           <h4 class="text-center icon my-2 ms-1"><i :class=view.i></i></h4>
-          <p class="text my-auto ps-3 stretched-link click">{{view.name}}</p>
+          <p class="text my-auto ps-3 stretched-link click">{{ view.name }}</p>
         </div>
         <div class="box d-flex flex-row mt-auto click">
           <h4 class="text-center icon my-3"><i class="bi bi-indent"></i></h4>
@@ -72,19 +73,17 @@ export default {
   name: 'App',
   data() {
     return {
-      views: [{ i: "bi bi-bag-fill", name: "商品管理",id:"mange"},
-      { i: "bi bi-tag-fill", name: "TAG管理" ,id:"tag"},
-      { i: "bi bi-box2-fill", name: "订单状态",id:"order" },
-      { i: "bi bi-check-circle-fill", name: "结束订单",id:"accomplish" }],
+      views: [{ i: "bi bi-bag-fill", name: "商品管理", id: "home" },
+      { i: "bi bi-tag-fill", name: "TAG管理", id: "tag" },
+      { i: "bi bi-box2-fill", name: "订单状态", id: "order" },
+      { i: "bi bi-check-circle-fill", name: "结束订单", id: "accomplish" }],
     }
   },
-  methods:{
-    to_(id){
-      if(id==='mange'){
-        _push(window,"")
-      }else{
-        _push(window,id)
-      }
+  methods: {
+    to_(id) {
+
+      _push(window, id)
+
     }
   }
 }
@@ -105,9 +104,11 @@ i {
 .bottm {
   height: calc(100% - 46.5px);
 }
-.click{
-  cursor:pointer;
+
+.click {
+  cursor: pointer;
 }
+
 .side {
   height: 100%;
   width: 220px;
@@ -133,6 +134,4 @@ i {
 .side>.box:hover>.icon>i:nth-child(n) {
   color: #40a9ff;
 }
-
-
 </style>

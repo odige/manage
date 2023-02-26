@@ -1,6 +1,6 @@
 <template>
     <div class="row ms-4">
-        个人中心
+        结束订单
     </div>
 </template>
 
