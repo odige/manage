@@ -11,22 +11,65 @@
                         <span class="input-group-text" style="display: inline;"><i class="bi bi-search"></i></span>
                     </div>
                     <div class="vr"></div>
-                    <button type="button" class="btn btn-primary add " title="添加标签"><i class="bi bi-brush-fill"></i></button>
+                    <button type="button" class="btn btn-primary add" title="添加标签" data-bs-toggle="modal"
+                        data-bs-target="#AddTag" @click="renovate"><i class="bi bi-brush-fill"></i></button>
                 </div>
 
             </div>
             <div class="col-10 mx-auto text-center ">
-                <button type="button" class="btn btn-primary col m-2 rounded-pill " v-for="tag in tags" :key="tag.id">{{tag.name}}</button>
+                <button type="button" class="btn btn-primary col m-2 rounded-pill " v-for="tag in tags" :key="tag.id"
+                    data-bs-toggle="modal" data-bs-target="#DelTag" @click="showtag(tag)">{{ tag.name }}</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="AddTag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">添加标签</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center mb-5">
+                    <input type="tag" class="form-control" placeholder="输入标签" v-model="tag_name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" @click="addtag(tag_name)"
+                        data-bs-dismiss="modal">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="DelTag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">tag</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center my-2 mx-auto">
+                    <h3>{{ show_tag.name }}</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        @click="deltag(show_tag)">删除</button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'TaG',
     data() {
         return {
+            show_tag: '',
+            tag_name: '',
             tags: [
                 {
                     id: 0,
@@ -38,14 +81,14 @@ export default {
                     updateTime: ""
                 },
                 {
-                    id: 0,
+                    id: 1,
                     parentId: 0,
                     name: "裤衩子",
                     status: true,
                     sortOrder: 0,
                     createTime: "2023-02-26T06:08:30.706Z",
                     updateTime: ""
-                },{
+                }, {
                     name: "衣服",
                 },
                 {
@@ -104,7 +147,32 @@ export default {
                 },
             ]
         }
+    },
+    methods: {
+        addtag(Name) {
+            var now = new Date();
+            this.tags.push({
+                name: Name,
+                status: true,
+                createTime: now,
+            });
+        },
+        renovate() {
+            this.tag_name = '';
+        },
+        showtag(tag) {
+            this.show_tag = tag
+        },
+        deltag(show) {
+            let id1 = this.tags.findIndex(item => {
+                if (item == show) {
+                    return true
+                }
+            })
+            this.tags.splice(id1, 1)
+        }
     }
+
 }
 </script>
 
@@ -133,7 +201,16 @@ export default {
     border-radius: 2rem;
     background-color: #eeeeee;
 }
-.add>i{
+
+.add>i {
     color: white;
+}
+
+.taginput {
+    border-color: #e9eaec;
+}
+
+.modal-footer {
+    border: none;
 }
 </style>
