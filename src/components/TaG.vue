@@ -7,7 +7,7 @@
             <div class=" col-11 mx-auto">
                 <div class="hstack gap-3">
                     <div class="input-group">
-                        <input type="text" class=" form-control border-2" placeholder="搜索">
+                        <input type="text" class=" form-control border-2" placeholder="搜索" v-model="search">
                         <span class="input-group-text" style="display: inline;"><i class="bi bi-search"></i></span>
                     </div>
                     <div class="vr"></div>
@@ -17,7 +17,7 @@
 
             </div>
             <div class="col-10 mx-auto text-center ">
-                <button type="button" class="btn btn-primary col m-2 rounded-pill " v-for="tag in tags" :key="tag.id"
+                <button type="button" class="btn btn-primary col m-2 rounded-pill " v-for="tag in filterList" :key="tag.id"
                     data-bs-toggle="modal" data-bs-target="#DelTag" @click="showtag(tag)">{{ tag.name }}</button>
             </div>
         </div>
@@ -68,6 +68,7 @@ export default {
     name: 'TaG',
     data() {
         return {
+            search: '',
             show_tag: '',
             tag_name: '',
             tags: [
@@ -145,7 +146,8 @@ export default {
                 {
                     name: "34",
                 },
-            ]
+            ],
+            filterList: []
         }
     },
     methods: {
@@ -168,10 +170,24 @@ export default {
                 if (item == show) {
                     return true
                 }
-            })
-            this.tags.splice(id1, 1)
+            });
+            this.tags.splice(id1, 1);
+            this.search = '';
         }
-    }
+    },
+    watch: {
+
+        search: {
+            immediate: true,
+            handler(val) {
+                this.filterList = this.tags.filter((item) => {
+                    return item.name.indexOf(val) !== -1
+                })
+            }
+        },
+        components: {}
+    },
+
 
 }
 </script>
