@@ -52,9 +52,9 @@
           <h4 class="text-center icon my-2 ms-1"><i :class=view.i></i></h4>
           <p class="text my-auto ps-3 stretched-link click">{{view.name}}</p>
         </div>
-        <div class="box d-flex flex-row mt-auto ">
+        <div class="box d-flex flex-row mt-auto click">
           <h4 class="text-center icon my-3"><i class="bi bi-indent"></i></h4>
-          <p class="text my-auto ps-3">退出登录</p>
+          <p class="text my-auto ps-3 ">退出登录</p>
         </div>
       </div>
       <router-view></router-view>
