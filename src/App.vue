@@ -9,7 +9,7 @@
           <i class="bi bi-list"></i>
         </button>
         <a class="navbar-brand m-3" >后台管理</a>
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        <div class="offcanvas offcanvas-start d-block-inline d-md-none" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
           id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">后台管理</h5>
