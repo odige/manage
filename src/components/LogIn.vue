@@ -5,14 +5,20 @@
                 <div class="mx-auto my-auto box text-center">
 
                     <div class="form-floating mb-5">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="username" class="form-control" id="floatingInput" placeholder="name@example.com"
+                            v-model="username">
                         <label for="floatingInput">用户名</label>
                     </div>
                     <div class="form-floating mb-5">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            v-model="password">
                         <label for="floatingPassword">密码</label>
                     </div>
+
                     <button type="button" class="btn btn-primary col-12" @click="to('home')">登入</button>
+                    <div class="alert alert-danger fixed-bottom mx-auto " role="alert" v-show="danger">
+                        账户名密码错误
+                    </div>
                 </div>
             </div>
         </div>
@@ -23,16 +29,19 @@
 import { _push } from "@/scripts/page";
 export default {
     name: 'LogIn',
-    data(){
-        return{
-
+    data() {
+        return {
+            danger: false,
+            username: '',
+            password: '',
         }
     },
     methods: {
-        to(id){
+        to(id) {
             _push(window, id)
+
         }
-  },
+    },
 }
 </script>
 
@@ -51,19 +60,28 @@ export default {
     width: 270px;
 
 }
-.form-control{
+
+.form-control {
     background-color: #f2f2f2;
     border: none;
 }
-.form-control:hover{
-    background-color:#e6e6e6;
+
+.form-control:hover {
+    background-color: #e6e6e6;
 }
-.form-control:focus{
-    box-shadow:none;
-    border:2px solid #1976d2
+
+.form-control:focus {
+    box-shadow: none;
+    border: 2px solid #1976d2
 }
-.form-control:focus ~ label{
+
+.form-control:focus~label {
     opacity: 1;
-    color:#1976d2;
+    color: #1976d2;
+}
+
+.alert {
+    width: 200px;
+
 }
 </style>
