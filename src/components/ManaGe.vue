@@ -1,6 +1,8 @@
 <template>
-  <div class="row ">
-    商品管理
+  <div id="manage">
+    <div class="row ">
+      商品管理
+    </div>
   </div>
 </template>
 
@@ -15,7 +17,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.row{
-    --bs-gutter-x: 0;
+.row {
+  --bs-gutter-x: 0;
+}
+
+#manage {
+  min-height: calc(100vh - 46.5px);
+  background-color: #ffffff;
 }
 </style>

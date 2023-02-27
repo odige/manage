@@ -1,6 +1,8 @@
 <template>
-    <div class="row ">
-        结束订单
+    <div id="accomplish">
+        <div class="row ">
+            结束订单
+        </div>
     </div>
 </template>
 
@@ -15,7 +17,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.row{
+.row {
     --bs-gutter-x: 0;
+}
+
+#accomplish {
+    min-height: calc(100vh - 46.5px);
+    background-color: #ffffff;
 }
 </style>

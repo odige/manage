@@ -8,9 +8,9 @@
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <i class="bi bi-list"></i>
         </button>
-        <a class="navbar-brand m-3" >后台管理</a>
-        <div class="offcanvas offcanvas-start d-block-inline d-md-none" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-          id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <a class="navbar-brand m-3">后台管理</a>
+        <div class="offcanvas offcanvas-start d-block-inline d-md-none" data-bs-scroll="true" data-bs-backdrop="false"
+          tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">后台管理</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -24,7 +24,7 @@
               </div>
               <div class="box d-flex flex-row mt-auto click">
                 <h4 class="text-center icon my-3"><i class="bi bi-indent"></i></h4>
-                <p class="text my-auto ps-3 "  @click="to_('')">退出登录</p>
+                <p class="text my-auto ps-3 " @click="to_('')">退出登录</p>
               </div>
             </div>
 
@@ -41,7 +41,7 @@
             <h4 class="text-center icon my-2 ms-1"><i :class=view.i></i></h4>
             <p class="text my-auto ps-3 stretched-link click">{{ view.name }}</p>
           </div>
-          <div class="box d-flex flex-row mt-auto click"  @click="to_('')">
+          <div class="box d-flex flex-row mt-auto click" @click="to_('')">
             <h4 class="text-center icon my-3"><i class="bi bi-indent"></i></h4>
             <p class="text my-auto ps-3 ">退出登录</p>
           </div>
@@ -152,4 +152,5 @@ i {
 
 .offcanvas-body {
   padding: 0px;
-}</style>
+}
+</style>
