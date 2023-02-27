@@ -1,5 +1,5 @@
 <template>
-  <div class="row ms-4">
+  <div class="row ">
     商品管理
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div class="row ms-4">
+    <div class="row ">
         结束订单
     </div>
 </template>
