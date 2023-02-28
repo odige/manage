@@ -36,7 +36,8 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                     <button type="button" class="btn btn-primary" @click="addtag(tag_name)"
-                        data-bs-dismiss="modal">添加</button>
+                        data-bs-dismiss="modal" v-if="btn">添加</button>
+                    <button type="button" class="btn btn-primary" disabled data-bs-dismiss="modal" v-if="!btn">添加</button>
                 </div>
             </div>
         </div>
@@ -68,6 +69,7 @@ export default {
     name: 'TaG',
     data() {
         return {
+            btn: false,
             search: '',
             show_tag: '',
             tag_name: '',
@@ -175,7 +177,7 @@ export default {
             this.tags.splice(id1, 1);
             this.search = '';
             this.renovate();
-        }
+        },
     },
     watch: {
 
@@ -187,7 +189,15 @@ export default {
                 })
             }
         },
-        components: {}
+        components: {},
+        
+        tag_name(val){
+            if(val !== ''){
+                this.btn=true
+            }else{
+                this.btn=false
+            }
+        }
     },
 
 
