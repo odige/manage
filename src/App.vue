@@ -4,7 +4,7 @@
       v-show="!(path === '/')">
       <div>
 
-        <button class="navbar-toggler mx-3 d-block-inline d-md-none " type="button" data-bs-toggle="offcanvas"
+        <button id="btn" class="navbar-toggler mx-3 d-block-inline d-md-none " type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <i class="bi bi-list"></i>
         </button>
@@ -13,7 +13,7 @@
           tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">后台管理</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close" id="close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div id="body" class="offcanvas-body">
             <div class="side  d-flex flex-column">
@@ -152,5 +152,17 @@ i {
 
 #body {
   padding: 0px;
+}
+#btn{
+  border:none;
+}
+#btn>i{
+  color: #fff;
+}
+#btn:focus{
+  box-shadow:none;
+}
+#close:focus{
+  box-shadow:none;
 }
 </style>
