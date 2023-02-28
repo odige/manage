@@ -15,7 +15,7 @@
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">后台管理</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body">
+          <div id="body" class="offcanvas-body">
             <div class="side  d-flex flex-column">
               <div class="box d-flex flex-row position-relative p-1" v-for="view in views" :key="view.name"
                 @click="to_(view.id)">
@@ -146,11 +146,11 @@ i {
   display: none;
 }
 
-.offcanvas {
-  --bs-offcanvas-width: 210px
+#offcanvasNavbar {
+  --bs-offcanvas-width: 210px;
 }
 
-.offcanvas-body {
+#body {
   padding: 0px;
 }
 </style>
