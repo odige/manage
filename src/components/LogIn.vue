@@ -16,8 +16,11 @@
                     </div>
 
                     <button type="button" class="btn btn-primary col-12" @click="to('home')">登入</button>
-                    <div class="alert alert-danger fixed-bottom mx-auto " role="alert" v-show="danger">
+                    <div class="alert alert-danger fixed-bottom mx-auto " role="alert" v-show="danger1">
                         账户名密码错误
+                    </div>
+                    <div class="alert alert-danger fixed-bottom mx-auto " role="alert" v-show="danger2">
+                        账户名密码不能为空
                     </div>
                 </div>
             </div>
@@ -31,17 +34,34 @@ export default {
     name: 'LogIn',
     data() {
         return {
-            danger: false,
+            danger1:false,
+            danger2: false,
             username: '',
             password: '',
         }
     },
     methods: {
         to(id) {
-            _push(window, id)
+            if(this.username==''||this.password==''){
+                this.danger2=true
+            }else{
+                _push(window, id)
+            }
 
         }
     },
+    watch:{
+        danger1(val){
+            if(val==true){
+                setTimeout(()=>this.danger1=false,1000)
+            }
+        },
+        danger2(val){
+            if(val==true){
+                setTimeout(()=>this.danger2=false,1000)
+            }
+        }
+    }
 }
 </script>
 
