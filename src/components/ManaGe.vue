@@ -36,7 +36,7 @@
               <th scope="row">{{ index + 1 }}</th>
               <td><img class="rounded"></td>
               <td class="text-truncate" style="max-width: 60px;">{{ list.name }}</td>
-              <td class="text-truncate" style="max-width: 60px;">{{ list.price }}</td>
+              <td class="text-truncate" style="max-width: 60px;">{{ list.price }}￥</td>
               <td class="text-truncate" style="max-width: 60px;">{{ list.stock }}</td>
               <td v-if="list.status == 1">在售</td>
               <td v-if="list.status == 2">下架</td>
@@ -163,7 +163,7 @@ export default {
       btn: true,
       delproduct: [],
       reviseproduct: [],
-      filterList:[],
+      filterList: [],
       newproduct: {
         name: '',
         subtitle: '',
