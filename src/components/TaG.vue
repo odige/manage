@@ -10,7 +10,7 @@
                         <input type="text" class=" form-control border-2" placeholder="搜索" v-model="search">
                         <span class="input-group-text" style="display: inline;"><i class="bi bi-search"></i></span>
                     </div>
-                    <div class="vr"></div>
+                
                     <button type="button" class="btn btn-primary add" title="添加标签" data-bs-toggle="modal"
                         data-bs-target="#AddTag" @click="renovate"><i class="bi bi-brush-fill"></i></button>
                 </div>
