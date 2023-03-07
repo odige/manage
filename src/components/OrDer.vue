@@ -115,7 +115,7 @@ export default {
     name: 'OrDer',
     data() {
         return {
-            text:'',
+            text: '',
             search: '',
             model: 0,
             shippingId: '',
@@ -135,7 +135,7 @@ export default {
                     {
                         "orderNo": 0,
                         "productId": 0,
-                        "productName": "string",
+                        "productName": "A",
                         "productImage": "string",
                         "currentUnitPrice": 0,//单价
                         "quantity": 0,//数量
@@ -170,7 +170,7 @@ export default {
                     {
                         "orderNo": 0,
                         "productId": 0,
-                        "productName": "string",
+                        "productName": "B",
                         "productImage": "string",
                         "currentUnitPrice": 0,//单价
                         "quantity": 0,//数量
@@ -198,12 +198,12 @@ export default {
     },
     methods: {
         copyText(t) {
-            this.text="收件人:"+t.receiverName+"\n联系方式:"+t.receiverPhone+"\n地址:"+t.receiverProvince+t.receiverCity+t.receiverDistrict+t.receiverAddress;
-            var textarea = document.createElement("textarea");  
-            textarea.value = this.text; 
-            document.body.appendChild(textarea); 
-            textarea.select(); 
-            document.execCommand("Copy"); 
+            this.text = "收件人:" + t.receiverName + "\n联系方式:" + t.receiverPhone + "\n地址:" + t.receiverProvince + t.receiverCity + t.receiverDistrict + t.receiverAddress;
+            var textarea = document.createElement("textarea");
+            textarea.value = this.text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("Copy");
             document.body.removeChild(textarea);
         },
         renovate() {
