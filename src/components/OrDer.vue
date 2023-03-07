@@ -42,7 +42,7 @@
                                     {{ list.orderItemVoList.currentUnitPrice }}
                                 </div>
                             </td>
-                            <td class="text-truncate click box" style="max-width: 60px;">
+                            <td class="text-truncate click box" style="max-width: 60px;" title="点击复制">
                                 <div class="overflow-x-auto" @click="copyText(list.shippingVo)">
                                     <div class="overflow-x-auto">
                                         收件人：{{ list.receiverName }}
