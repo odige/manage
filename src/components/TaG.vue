@@ -72,7 +72,9 @@ export default {
             btn: false,
             search: '',
             show_tag: '',
+            //添加标签
             tag_name: '',
+            //标签
             tags: [
                 {
                     id: 0,
@@ -149,6 +151,7 @@ export default {
                     name: "34",
                 },
             ],
+            //显示标签
             filterList: []
         }
     },

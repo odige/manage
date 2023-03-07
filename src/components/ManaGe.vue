@@ -163,7 +163,9 @@ export default {
       btn: true,
       delproduct: [],
       reviseproduct: [],
+      //商品显示
       filterList: [],
+      //添加商品
       newproduct: {
         name: '',
         subtitle: '',
@@ -174,6 +176,7 @@ export default {
         stock: 0,
         status: 1
       },
+      //商品
       product: [{
         id: 1,
         name: 'xxxxxxx',
@@ -199,15 +202,16 @@ export default {
   },
   methods: {
     revise(list) {
-      this.reviseproduct = list
-      this.delproduct = list
+      this.reviseproduct = { ...list }
+      this.delproduct = { ...list }
     },
+    //初始化函数
     renovate() {
-      this.newproduct.name = '',
-        this.newproduct.subtitle = '',
-        this.newproduct.mainImage = '',
-        this.newproduct.subImages = '',
-        this.newproduct.price = 0
+      this.newproduct.name = ''
+      this.newproduct.subtitle = ''
+      this.newproduct.mainImage = ''
+      this.newproduct.subImages = ''
+      this.newproduct.price = 0
       this.newproduct.stock = 0
       this.filterList = this.product
     },
