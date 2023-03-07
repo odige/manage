@@ -7,7 +7,6 @@ import { createRouter, createWebHashHistory } from "vue-router";
 // 在此添加路由页面
 import login from "@/components/LogIn.vue";
 import home from "@/components/ManaGe.vue";
-import accomplish from "@/components/AccomPlish.vue";
 import order from "@/components/OrDer.vue";
 import tag from "@/components/TaG.vue";
 
@@ -15,7 +14,6 @@ import tag from "@/components/TaG.vue";
 const routes = [
   { path: "/", component: login },
   { path: "/home", component: home },
-  { path: "/accomplish", component: accomplish },
   { path: "/order", component: order },
   { path: "/tag", component: tag },
 ];

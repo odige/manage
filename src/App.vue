@@ -66,8 +66,7 @@ export default {
       path: '',
       views: [{ i: "bi bi-bag-fill", name: "商品管理", id: "home" },
       { i: "bi bi-tag-fill", name: "TAG管理", id: "tag" },
-      { i: "bi bi-box2-fill", name: "订单状态", id: "order" },
-      { i: "bi bi-check-circle-fill", name: "结束订单", id: "accomplish" }],
+      { i: "bi bi-box2-fill", name: "订单状态", id: "order" }],
     }
   },
   methods: {
