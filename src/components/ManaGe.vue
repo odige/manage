@@ -215,8 +215,7 @@ export default {
       this.newproduct.stock = 0
       this.search = '';
       this.filterList = this.product
-      this.reviseproduct = [];
-      this.delproduct = []
+    
     },
     revisep(show) {
       let id1 = this.product.findIndex(item => {
