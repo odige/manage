@@ -224,7 +224,6 @@ export default {
           return true
         }
       });
-      console.log(id1);
       this.product[id1] = this.reviseproduct
       this.renovate();
     },
