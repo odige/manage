@@ -22,12 +22,12 @@
         <table class="table">
           <thead>
             <tr>
-              <th class="col">序号</th>
-              <th class="col">图片</th>
-              <th class="col">名字</th>
-              <th class="col">价格</th>
-              <th class="col">库存</th>
-              <th class="col">状态</th>
+              <th class="col-2">序号</th>
+              <th class="col-2">图片</th>
+              <th class="col-2">名字</th>
+              <th class="col-2">价格</th>
+              <th class="col-2">库存</th>
+              <th class="col-2">状态</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -126,7 +126,7 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="renovate">取消</button>
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="revisep(delproduct)">提交</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal"
-              data-bs-target="#Del">删除商品</button>
+              data-bs-target="#Del">下架商品</button>
           </div>
         </div>
       </div>
@@ -136,15 +136,15 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">删除商品</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">下架商品</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center my-2 mx-auto">
-            确认删除此商品？
+            确认下架此商品？
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="del(delproduct)">删除</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="del(delproduct)">下架</button>
           </div>
         </div>
       </div>
@@ -203,7 +203,7 @@ export default {
   methods: {
     revise(list) {
       this.reviseproduct = { ...list }
-      this.delproduct = { ...list }
+      this.delproduct = list
     },
     //初始化函数
     renovate() {
@@ -213,18 +213,20 @@ export default {
       this.newproduct.subImages = ''
       this.newproduct.price = 0
       this.newproduct.stock = 0
+      this.search = '';
       this.filterList = this.product
+      this.reviseproduct = [];
+      this.delproduct = []
     },
     revisep(show) {
-      let id = this.product.forEach(item => {
-        let index = 0
-        if (show !== item) {
-          index++
-        } else {
-          return index
+      let id1 = this.product.findIndex(item => {
+        if (item == show) {
+          return true
         }
-      })
-      this.product[id] = this.reviseproduct
+      });
+      console.log(id1);
+      this.product[id1] = this.reviseproduct
+      this.renovate();
     },
     del(show) {
       let id1 = this.product.findIndex(item => {
@@ -233,10 +235,10 @@ export default {
         }
       });
       this.product.splice(id1, 1);
-      this.search = '';
       this.renovate();
     },
   },
+
   watch: {
     search: {
       immediate: true,
