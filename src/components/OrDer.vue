@@ -27,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr class="" v-for="list in order" :key="list.id">
+                        <tr class="" v-for="list in filterList" :key="list.id">
                             <th scope="row">{{ list.createTime }}</th>
                             <td><img class="rounded"></td>
                             <td class="text-truncate" style="max-width: 60px;">
@@ -43,12 +43,12 @@
                                 </div>
                             </td>
                             <td class="text-truncate click box" style="max-width: 60px;">
-                                <div class="overflow-x-auto">
+                                <div class="overflow-x-auto" @click="copyText(list.shippingVo)">
                                     <div class="overflow-x-auto">
                                         收件人：{{ list.receiverName }}
                                     </div>
                                     <div>
-                                        练习方式：{{ list.shippingVo.receiverPhone }}
+                                        联系方式：{{ list.shippingVo.receiverPhone }}
                                     </div>
                                     <div class="overflow-x-auto">
                                         地址：{{ list.shippingVo.receiverProvince }}{{ list.shippingVo.receiverCity }}{{
@@ -90,7 +90,7 @@
                             </div>
                             <div class="input-group  my-3" v-if="model == 1">
                                 <label class="my-auto">快递单号：</label>
-                                <input type="Product_price" class="form-control rounded subtitle" placeholder="单号" v-model="shippingId">
+                                {{ shippingId }}
                             </div>
                             <p style="color: #777;" v-if="model == 0">注:提交之后无法更改，请确保输入无误</p>
                         </div>
@@ -98,7 +98,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                                 v-if="model == 0">取消</button>
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-if="model == 0"
-                                @click="send(shippingId)">增加</button>
+                                @click="send(shippingId)">确认</button>
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
                                 v-if="model == 1">确认</button>
                         </div>
@@ -115,11 +115,14 @@ export default {
     name: 'OrDer',
     data() {
         return {
+            text:'',
+            search: '',
             model: 0,
             shippingId: '',
+            filterList: [],
             order: [
                 {
-                    "orderNo": 0,
+                    "orderNo": '1',
                     "payment": 0,
                     "paymentTypeDesc": "string",
                     "postage": 0,
@@ -154,7 +157,7 @@ export default {
                         "receiverZip": "string"
                     }
                 }, {
-                    "orderNo": 0,
+                    "orderNo": '2',
                     "payment": 0,
                     "paymentTypeDesc": "string",
                     "postage": 0,
@@ -176,7 +179,7 @@ export default {
                     }
                     ,
                     "imageHost": "string",
-                    "shippingId": 0,//发货编号
+                    "shippingId": '',//发货编号
                     "receiverName": "string",
                     "shippingVo": {
                         "receiverName": "string",
@@ -194,13 +197,22 @@ export default {
         }
     },
     methods: {
-        renovate(){
-            this.shippingId=''
+        copyText(t) {
+            this.text="收件人:"+t.receiverName+"\n联系方式:"+t.receiverPhone+"\n地址:"+t.receiverProvince+t.receiverCity+t.receiverDistrict+t.receiverAddress;
+            var textarea = document.createElement("textarea");  
+            textarea.value = this.text; 
+            document.body.appendChild(textarea); 
+            textarea.select(); 
+            document.execCommand("Copy"); 
+            document.body.removeChild(textarea);
         },
-        give(obj){
-            console.log(1);
-            this.model=0
-            this.shippingId=obj
+        renovate() {
+            this.shippingId = ''
+        },
+        give(obj) {
+            this.renovate()
+            this.model = 0
+            this.shippingId = obj
         },
         send(show) {
             let id1 = this.order.findIndex(item => {
@@ -213,9 +225,20 @@ export default {
             this.renovate();
         },
         delivery(id) {
-            this.model=1
-            this.shippingId=id
+            this.model = 1
+            this.shippingId = id
         }
+    },
+    watch: {
+        search: {
+            immediate: true,
+            handler(val) {
+                this.filterList = this.order.filter((item) => {
+                    return item.orderNo.indexOf(val) !== -1
+                })
+            }
+        },
+        components: {},
     }
 }
 </script>
@@ -292,4 +315,5 @@ td {
 
 .click:hover>.status>i {
     color: #40a9ff;
-}</style>
+}
+</style>
